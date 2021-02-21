@@ -12,7 +12,10 @@ from tensorflow.keras.preprocessing.image import ImageDataGenerator
 
 os.chdir(os.path.dirname(os.path.abspath(__file__)))
 
-token = "NzUxMzAyODU5MTE0NTQ1MjAz.X1HHUA.qvUHx_VTIQAbopj-bq6APUhTANU"
+token_path = os.path.dirname(os.path.abspath(__file__)) + "/.token"
+with open(token_path, "r", encoding="utf-8") as t:
+    token = t.readline()
+print(token)
 
 bot_activity = discord.Game(name="test")
 bot = commands.Bot(command_prefix="~", activity=bot_activity)
